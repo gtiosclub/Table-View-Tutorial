@@ -14,7 +14,7 @@ We want the app to have one big Table View that takes up the entire screen. Sear
 
 We want the table view to fill the entire screen at all times. We could just drag the corners of the view to match the size and shape of the canvas, but that doesn't work if the screen itself changes size. To make an app that works on all different iPhone sizes, we need to use **Autolayout Constraints**. 
 
-The goal of Autolayout Constraints is to establish a set of relationships that define where a view should be on screen (its origin), and how big the view should be (its size). Together, the origin and size of a view create its *frame*.
+The goal of Autolayout Constraints are to establish a set of relationships that define where a view should be on screen (its origin) and how big it should be (its size). Together, the origin and size of a view create its *frame*.
 
 *If you want an in-depth explanation of how constraints work, take a look at [Part 4 of our Calculator Tutorial](http://www.iosgatech.xyz/tutorials#)*.
 
@@ -62,7 +62,7 @@ The Table View should snap into place:
 
 ### Recap
 
-We set up our Table View and constrained it to fill the screen.
+We set up our Table View and constrained it to fill the screen. We discussed Autolayout Constraints and the purpose of *Constrain to margins*.
 
 ### Next Time
 

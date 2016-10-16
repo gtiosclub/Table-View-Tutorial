@@ -32,7 +32,7 @@ You want to select `Align Horizontally in Container` and `Align Vertically in Co
 
 #### Instrinsic size
 
-In Part 1, we covered that constraints must define a view's *origin* (position) and *size*. The constraints for this label define its position, but they don't say anything about the label's size. This is because the label has an **intrinsic size** determined by its content. In this case, Interface Builder knows how big the text *"Brian: 0"* should be when rendered in 17 point font. We can override this intrinsic size with our own constraints if we want, but it isn't necessary for this example.
+In Part 1, we covered that constraints must define a view's *origin* (position) and *size*. The constraints for this label define its position, but they don't say anything about the its size. This is because the label has an **intrinsic size** determined by its content. In this case, Interface Builder knows how big the text *"Brian: 0"* should be when rendered in 17 point font. We can override this intrinsic size with our own constraints if we want, but it isn't necessary for this example.
 
 ### Adding buttons
 
@@ -46,10 +46,10 @@ The constraints are left as an exercise to the reader. *[(Answers)](../P3/cheats
 
 ### Recap
 
-We made a custom Table View Cell that uses constraints and intrinsic sizes to position its subviews.
+We made a custom Table View Cell that uses constraints and intrinsic sizes to position its subviews. 
 
 ### Next Time
 
-Not sure yet
+We'll start writing some code to make the Table View actually do something.
 
-#### [Part 4: ??](../P4/part4.md)
+#### [Part 4: Implementing your Table View Delegate](../P4/part4.md)
