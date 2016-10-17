@@ -8,7 +8,7 @@ So far we've been focusing on having the Table View display static content. Now 
 
 Open up your code and storyboard side-by-side again. You want to `control-drag` from the subtract button to the code. This time, though, you want to change it from an *outlet* to an *action*.
 
-<p align="center"> <img src="screenshot1.png" height="200px" align="center"> </p>
+<p align="center"> <img src="/assets/tableview/P7/screenshot1.png" height="200px" align="center"> </p>
 
 You can name the function anything you want, but it should definitely include a verb. Press connect, and you should get a function:
 
@@ -20,11 +20,11 @@ You can name the function anything you want, but it should definitely include a 
 
 If you accidentally made an `@IBOutlet`, it isn't enough to just delete the line of code. You **must** remove the outlet from the button's Connection Inspector:
 
-<p align="center"> <img src="screenshot2.png" height="450px" align="center"> </p>
+<p align="center"> <img src="/assets/tableview/P7/screenshot2.png" height="450px" align="center"> </p>
 
 If you don't remove the connection in the storyboard, your app ***will crash*** when you launch it. This is one of the most common bugs we see at iOS Club, but it's easy enough to fix.
 
-Repeat the process for your add button. 
+Repeat the process for your add button.
 
 ### Saving the arguments from the `decorate` method
 
@@ -56,7 +56,7 @@ func updateScore(offset: Int) {
     var score = controller.scores[name] ?? 0
     score += offset
     controller.scores[name] = score
-    
+
     self.label.text = "\(name): \(score)"
 }
 ```
@@ -81,11 +81,11 @@ Everything should be in place for the user interaction. Run the app in the simul
 
 Everything looks normal at first, but then we start pressing the buttons:
 
-<p align="center"> <img src="screenshot3.png" height="500px" align="center"> </p>
+<p align="center"> <img src="/assets/tableview/P7/screenshot3.png" height="500px" align="center"> </p>
 
 `Brian` has turned in to `Optional("Brian")`. This is Swift being *particularly* cautious.
 
-When we reference `name` in the `updateScore` method, we're referencing the class's `var name: String!`. The type `String!` is an Implicitly Unwrapped Optional, meaning it may be `nil` but Swift will let you interact with it as if it's a non-optional `String` type. This effectively erases the safety benefits we get from working with optionals, but is useful in contexts where we know something won't be nil *by design*. 
+When we reference `name` in the `updateScore` method, we're referencing the class's `var name: String!`. The type `String!` is an Implicitly Unwrapped Optional, meaning it may be `nil` but Swift will let you interact with it as if it's a non-optional `String` type. This effectively erases the safety benefits we get from working with optionals, but is useful in contexts where we know something won't be nil *by design*.
 
 In some situations, Swift takes the safe approach and treats `String!` like `String?`. In that instance, `Brian` turns in to `Optional("Brian")`. We need to unwrap the optional value so it's unambiguously non-nil.
 
@@ -93,7 +93,7 @@ We've used the nil-coalescing operator before, and this is another situation whe
 
 If we run the app again, we see that everything is peachy:
 
-<p align="center"> <img src="screenshot4.gif" height="500px" align="center"> </p>
+<p align="center"> <img src="/assets/tableview/P7/screenshot4.gif" height="500px" align="center"> </p>
 
 ### Recap
 

@@ -34,11 +34,11 @@ Now that the `ScoreCell` is customizable, we can revisit the `cellForRowAtIndexP
 ```swift
 func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "score", for: indexPath) as! ScoreCell
-    
+
     let row = indexPath.row
     let name = Array(scores.keys)[row]
     cell.decorate(for: name, in: self)
-    
+
     return cell
 }
 ```
@@ -49,7 +49,7 @@ Again, we'll take a line-by-line look:
 let cell = tableView.dequeueReusableCell(withIdentifier: "score", for: indexPath) as! ScoreCell
 ```
 
-This line is mostly the same as what we had before, but there's two differences. First off, we save a reference to the cell so that we can do `cell.decorate` later. The `as! ScoreCell` is crucial, though. The `dequeueReusableCell` function returns a `UITableViewCell` object, but we can only access the `decorate` method on a `ScoreCell` object. 
+This line is mostly the same as what we had before, but there's two differences. First off, we save a reference to the cell so that we can do `cell.decorate` later. The `as! ScoreCell` is crucial, though. The `dequeueReusableCell` function returns a `UITableViewCell` object, but we can only access the `decorate` method on a `ScoreCell` object.
 
 We have to up-cast the cell to a `ScoreCell`. We know that our cell with the `score` identifier will always be a `ScoreCell`, but that's not enough for the compiler. Marking the cast with an `as!` tells the compiler to ignore the possibility that the cell might not be a `ScoreCell`. This lets us not have to worry about unwrapping an optional. *`as!` is an unsafe operation and will crash your app if it fails, but it's safe to use in this context because we know it should always succeed.*
 
@@ -81,11 +81,11 @@ After we've populated the cell with content, we `return` it so the Table View ca
 
 If you run the app in the simulator, the rows should actually match the dictionary now:
 
-<p align="center"> <img src="screenshot1.png" height="450px" align="center"> </p>
+<p align="center"> <img src="/assets/tableview/P6/screenshot1.png" height="450px" align="center"> </p>
 
 And if you update the dictionary to something like `var scores = ["Cal" : 1, "Brian" : 5, "Komal" : 2, "Kevin" : 3, "Luke" : 0, "Tim" : 4, "Steve" : 6, "Bill" : 0]`, you should see the changes reflected when you re-run the app:
 
-<p align="center"> <img src="screenshot2.png" height="450px" align="center"> </p>
+<p align="center"> <img src="/assets/tableview/P6/screenshot2.png" height="450px" align="center"> </p>
 
 ### Recap
 
@@ -95,4 +95,4 @@ You wrote a `decorate` function that lets the `ViewController` populate individu
 
 We'll wrap up by implementing the add and subtract buttons.
 
-#### [Part 7: Adding User Interaction](../P7/part7.md)
+Click here for <a href="#top" onclick="setTableViewTutorial(7)">Part 7</a>

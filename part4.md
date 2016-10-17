@@ -25,7 +25,7 @@ You should start seeing some compile errors because `ViewController` does not co
 
 #### How many rows do we want?
 
-One of the protocol's required methods is `tableView(_, numberOfRowsInSection)`. Before we can tell the table views how many rows it should have, we need to decide that for ourselves. 
+One of the protocol's required methods is `tableView(_, numberOfRowsInSection)`. Before we can tell the table views how many rows it should have, we need to decide that for ourselves.
 
 It's pretty typical to back a Table View by a data structure like an Array or a Dictionary. A Dictionary makes sense in this context, because we can use the person's name and their current score as the key/value pair.
 
@@ -49,7 +49,7 @@ func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> 
 
 #### `cellForRowAtIndexPath`
 
-The Table View knows how many rows it should have, but it still needs to know what those individual rows are. In our case, we want all of the rows to be the `score` cell that we made in Interface Builder, but you could set it up so every row was a different type of cell. 
+The Table View knows how many rows it should have, but it still needs to know what those individual rows are. In our case, we want all of the rows to be the `score` cell that we made in Interface Builder, but you could set it up so every row was a different type of cell.
 
 The `tableView(_, cellForRowAt indexPath)` method is supposed to return an instance of `UITableViewCell`. We want to create an instance of the cell we designed earlier, so we need to *dequeue* a reusable cell with the `score` identifier.
 
@@ -63,7 +63,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
 
 Imagine quickly scrolling through a table view that has 1000 rows. If the table view had to initialize a new `UITableViewCell` every time a new one came on screen, it would spend a lot of processing time on allocating and deallocating memory for these temporary objects. Extra processing time is the enemy of smooth performance, and those wasted CPU cycles would start causing noticeable stuttering.
 
-Instead, `UITableView` keeps a queue of cells that have already been initialized. When you call `dequeueReusableCell`, the Table View checks its queue. If it has extra cells that have moved off-screen, it reuses those cells. It only initializes a new object if absolutely necessary. 
+Instead, `UITableView` keeps a queue of cells that have already been initialized. When you call `dequeueReusableCell`, the Table View checks its queue. If it has extra cells that have moved off-screen, it reuses those cells. It only initializes a new object if absolutely necessary.
 
 ### Checking our progress
 
@@ -81,35 +81,35 @@ class ViewController: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return tableView.dequeueReusableCell(withIdentifier: "score", for: indexPath)
     }
-    
+
 }
 ```
 
 But if you run the app in the simulator, you'll see nothing but an empty Table View:
 
-<p align="center"> <img src="screenshot1.png" height="450px" align="center"> </p>
+<p align="center"> <img src="/assets/tableview/P4/screenshot1.png" height="450px" align="center"> </p>
 
 Even though we've turned our `ViewController` into a `UITableViewDelegate` and `UITableViewDataSource`, we haven't told the Table View to use that controller as its delegate.
 
 Open up the `Main.storyboard` again, and select the Table View. Open the Connections Inspector, and you should see these outlets for `dataSource` and `delegate`:
 
-<p align="center"> <img src="screenshot2.png" height="175px" align="center"> </p>
+<p align="center"> <img src="/assets/tableview/P4/screenshot2.png" height="175px" align="center"> </p>
 
 We need to connect the View Controller to these outlets. You can do that by dragging from the circles on the right to the little yellow circle at the top of the canvas.
 
-<p align="center"> <img src="screenshot3.png" height="200px" align="center"> </p>
+<p align="center"> <img src="/assets/tableview/P4/screenshot3.png" height="200px" align="center"> </p>
 
 You should have both of them set to the View Controller:
 
-<p align="center"> <img src="screenshot4.png" height="175px" align="center"> </p>
+<p align="center"> <img src="/assets/tableview/P4/screenshot4.png" height="175px" align="center"> </p>
 
 If you run the app in the simulator again, you should actually see some content:
 
-<p align="center"> <img src="screenshot5.png" height="450px" align="center"> </p>
+<p align="center"> <img src="/assets/tableview/P4/screenshot5.png" height="450px" align="center"> </p>
 
 ### Why are they all the same?
 
-The Table View is loading some `score` cells and displaying them, but we aren't telling it how to render the cell. Right now it's just displaying whatever we have in Interface Builder. We want to populate each row with a different person from the `scores` dictionary, but that'll take a little more work. 
+The Table View is loading some `score` cells and displaying them, but we aren't telling it how to render the cell. Right now it's just displaying whatever we have in Interface Builder. We want to populate each row with a different person from the `scores` dictionary, but that'll take a little more work.
 
 ### Recap
 
@@ -119,4 +119,4 @@ We implemented our `UITableViewDelegate` / `UITableViewDataSource`. We covered `
 
 We'll implement a custom class that subclasses `UITableViewCell`, allowing us to customize the content in each individual row.
 
-#### [Part 5: Subclassing UITableViewCell](../P5/part5.md)
+Click here for <a href="#top" onclick="setTableViewTutorial(5)">Part 5</a>
