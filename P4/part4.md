@@ -13,7 +13,7 @@ We need to create a delegate that we can give to the Table View. It's common pra
 `UITableViewDelegate` and `UITableViewDataSource` are two protocols that we want our `ViewController` to implement. (If you're more familiar with Java, think along the lines of implementing an Interface). Go ahead and add the protocols to the class declaration:
 
 ```swift
-class ViewController: UIViewController, UIViewControllerDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     // Xcode autogenerates some boilerplate code for you here,
     // but you can go ahead and delete it if you want.
@@ -70,8 +70,8 @@ Instead, `UITableView` keeps a queue of cells that have already been initialized
 Your View Controller class should look something like this:
 
 ```swift
-class ViewController: UIViewController, UITableViewDataSource {
-
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+z
     var scores = ["Cal" : 0, "Brian" : 0, "Komal" : 0]
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
